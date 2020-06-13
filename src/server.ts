@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 
 import indexRoutes from './routes/indexRoutes';
+import postRoutes from './routes/PostRoutes';
 
 class Server {
 	public app: express.Application;
@@ -43,6 +44,7 @@ class Server {
 
 	routes() {
 		this.app.use(indexRoutes);
+		this.app.use('/api/posts', postRoutes);
 	}
 
 	start() {
