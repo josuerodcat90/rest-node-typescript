@@ -22,6 +22,12 @@ const UserSchema = new Schema({
 		required: true,
 		trim: true,
 	},
+	posts: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Post',
+		},
+	],
 	createdAt: {
 		type: Date,
 		default: Date.now,
