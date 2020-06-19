@@ -8,6 +8,7 @@ import 'dotenv/config';
 
 import indexRoutes from './routes/indexRoutes';
 import postRoutes from './routes/PostRoutes';
+import userRoutes from './routes/UserRoutes';
 
 class Server {
 	public app: express.Application;
@@ -45,6 +46,7 @@ class Server {
 	routes() {
 		this.app.use(indexRoutes);
 		this.app.use('/api/posts', postRoutes);
+		this.app.use('/api/users', userRoutes);
 	}
 
 	start() {
