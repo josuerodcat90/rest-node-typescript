@@ -11,13 +11,13 @@ class UserRoutes {
 	}
 
 	public async getUsers(req: Request, res: Response): Promise<void> {
-		const users = await User.find();
+		const users = await User.find().populate('posts');
 		res.json({ data: users });
 	}
 
 	public async getUser(req: Request, res: Response): Promise<void> {
 		const { userId } = req.params;
-		const user = await User.findById(userId);
+		const user = await User.findById(userId).populate('posts');
 		res.json({ data: user });
 	}
 
